@@ -1,17 +1,20 @@
 import { FC } from 'react';
-import { Link, Outlet } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
+import { GuestContainer } from './GuestLayout.styles';
+import AppBtn from '../../../modules/ui/AppBtn';
+
 
 const GuestLayout: FC = () => {
   return (
-    <div>
-      <header>
-        <Link to="/sign-in">Sign In</Link>
-        <Link to="/sign-up">Sign Up</Link>
-      </header>
+    <GuestContainer className="guest">
+      <nav>
+        <AppBtn to="sign-in">Sign In</AppBtn>
+        <AppBtn to="sign-up">Sign Up</AppBtn>
+      </nav>
       <main>
         <Outlet />
       </main>
-    </div>
+    </GuestContainer>
   );
 };
 
