@@ -1,15 +1,7 @@
-import styled from 'styled-components';
-import { ThemeI } from '../../styles/theme.styles';
+import { css } from 'styled-components';
 
-interface Props {
-  isLink?: boolean;
-  isActive?: boolean
-  theme: ThemeI;
-}
-
-export const Button = styled.button<Props>`
+export const baseUIStyles = css`
   align-self: center;
-  background-color: ${(props) => getBackground(props)};
   border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
   border-style: solid;
   border-width: 2px;
@@ -41,17 +33,4 @@ export const Button = styled.button<Props>`
   &:focus {
     box-shadow: rgba(0, 0, 0, .3) 2px 8px 4px -6px;
   }
-
-  a {
-    text-decoration: none;
-    color: black;
-  }
 `;
-
-function getBackground ({ isLink, isActive, theme }: Record<string, any>): string {
-  const { colors } = theme;
-  if (!isLink) {
-    return colors.white;
-  }
-  return isActive ? colors.linkActive : colors.link;
-}
