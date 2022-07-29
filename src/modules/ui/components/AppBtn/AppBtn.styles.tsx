@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 import { ThemeI } from '../../../../styles/theme.styles';
-import { baseUIStyles } from '../../styles/base.styles';
+import { base, onHover } from '../../styles/base.styles';
 
 interface Props {
   isLink?: boolean;
@@ -10,7 +10,8 @@ interface Props {
 }
 
 export const Button = styled.button<Props>`
-  ${baseUIStyles};
+  ${base};
+  ${onHover}
   width: ${props => props.width || null};
   background-color: ${props => getBackground(props)};
 

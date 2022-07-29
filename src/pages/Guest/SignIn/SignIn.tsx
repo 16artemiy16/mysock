@@ -5,8 +5,8 @@ import AppBtn from '../../../modules/ui/components/AppBtn/AppBtn';
 const SignIn = () => {
   return (
     <SignInForm>
-      <AppInput placeholder="Email" />
-      <AppInput placeholder="Password" type="password" />
+      <AppInput placeholder="Email" postfixIcon="email" />
+      <AppInput placeholder="Password" type="password" postfixIcon="lock" />
       <AppBtn width="100%" type="button">Login!</AppBtn>
     </SignInForm>
   )
