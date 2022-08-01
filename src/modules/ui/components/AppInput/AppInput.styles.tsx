@@ -3,6 +3,7 @@ import { base, borders, onHover } from '../../styles/base.styles';
 
 export const Input = styled.input`
   ${base};
+  flex: 1;
 `;
 
 export const Wrapper = styled.div`

@@ -1,4 +1,4 @@
-type AvailableColors = 'white' | 'black' | 'red' | 'link' | 'linkActive' | 'success' | 'primary';
+type AvailableColors = 'white' | 'black' | 'red' | 'link' | 'linkActive' | 'success' | 'primary' | 'error';
 
 export interface ThemeI {
   colors: Record<AvailableColors, string>;
@@ -15,5 +15,6 @@ export const theme: ThemeI = {
 
     success: 'lightgreen',
     primary: 'lightskyblue',
+    error: '#b51d1d',
   }
 }
