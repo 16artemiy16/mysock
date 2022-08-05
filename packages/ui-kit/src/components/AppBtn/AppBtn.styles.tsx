@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { ThemeI } from '../../../../styles/theme.styles';
+import { ThemeI } from '@mysock-front/application/src/styles/theme.styles';
 import { base, onHover } from '../../styles/base.styles';
 
 interface Props {

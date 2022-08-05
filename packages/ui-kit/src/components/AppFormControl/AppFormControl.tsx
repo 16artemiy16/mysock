@@ -1,6 +1,6 @@
 import { FC, ReactElement, useEffect, useState } from 'react';
 import { AppFormControlError, AppFormControlWrapper } from './AppFormControl.styles';
-import { createBulkValidator, required, ValidatorFn, ValidatorName } from './validators';
+import { createBulkValidator, ValidatorFn, ValidatorName } from './validators';
 
 type Validator = ValidatorFn | ValidatorName;
 

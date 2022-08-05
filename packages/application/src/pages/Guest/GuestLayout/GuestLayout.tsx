@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Outlet } from 'react-router-dom';
 import { GuestContainer } from './GuestLayout.styles';
-import AppBtn from '../../../modules/ui/components/AppBtn/AppBtn';
+import { AppBtn } from '@mysock-front/ui-kit';
 
 
 const GuestLayout: FC = () => {

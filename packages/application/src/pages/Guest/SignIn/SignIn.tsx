@@ -1,9 +1,6 @@
-import AppInput from '../../../modules/ui/components/AppInput/AppInput';
 import { SignInForm } from './SignIn.styles';
-import AppBtn from '../../../modules/ui/components/AppBtn/AppBtn';
-import AppFormControl from '../../../modules/ui/components/AppFormControl/AppFormControl';
 import { useState } from 'react';
-import { minLen } from '../../../modules/ui/components/AppFormControl/validators';
+import { AppBtn, AppFormControl, AppInput, minLen } from '@mysock-front/ui-kit';
 
 const SignIn = () => {
   const [email, setEmail] = useState('');
