@@ -2,6 +2,7 @@ import { FC, InputHTMLAttributes, useEffect, useRef, useState } from 'react';
 import { Input, PostfixWrapper, Wrapper } from './AppInput.styles';
 import AppIcon from '../AppIcon/AppIcon';
 import { AllowedImg } from '../AppIcon/icons';
+import { setAllowedAsFormControl } from '../../utils/formGroup.utils';
 
 interface Props extends InputHTMLAttributes<any> {
   postfixIcon?: AllowedImg;
@@ -27,5 +28,7 @@ const AppInput: FC<Props> = ({ postfixIcon, ...rest }) => {
     </Wrapper>
   );
 };
+
+setAllowedAsFormControl(AppInput);
 
 export default AppInput;

@@ -5,3 +5,7 @@ export const SignInForm = styled.form`
   display: flex;
   flex-direction: column;
 `;
+
+export const SignInFormRow = styled.div`
+  margin-bottom: 1.5rem;
+`;

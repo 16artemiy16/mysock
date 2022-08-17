@@ -1,6 +1,7 @@
-import { Children, cloneElement, FC, SyntheticEvent, useEffect, useState } from 'react';
+import { Children, cloneElement, useEffect } from 'react';
+import { isElementAllowedAsFormControl, isElementLabel } from '../../utils/formGroup.utils';
 
-export const AppFormGroup: any = ({ children, model, onModelChange }: any) => {
+export const AppFormGroup: any = ({ children, model, onModelChange, groupWrapper, controlWrapper }: any) => {
   useEffect(() => {
     onModelChange(model);
   }, [model]);
@@ -9,7 +10,7 @@ export const AppFormGroup: any = ({ children, model, onModelChange }: any) => {
     onModelChange({ ...model, [field]: value });
   };
 
-  return Children.map(children, (child) => {
+  const newChildren = Children.map(children, (child) => {
     const { name } = child.props;
 
     if (!name) {
@@ -17,25 +18,38 @@ export const AppFormGroup: any = ({ children, model, onModelChange }: any) => {
     }
 
     return cloneElement(child, {
+      controlWrapper,
       value: model[name],
       onValueChange: (value: any) => {
         handleControlChange(name, value);
       },
     });
   });
+
+  return cloneElement(groupWrapper ? groupWrapper() : <></>, {
+    children: newChildren,
+  });
 }
 
-AppFormGroup.Control = ({ children, value, onValueChange }: any) => {
-  return Children.map(children, (child) => {
-    if (child.props.onChange) {
-      child.props.onChange();
+AppFormGroup.Control = ({ children, value, onValueChange, controlWrapper }: any) => {
+  const newChildren = Children.map(children, (child) => {
+    if (!isElementAllowedAsFormControl(child) && !isElementLabel(child)) {
+      throw Error(`This element cannot be used neither as a form control nor label - ${child.type}`);
     }
 
     return cloneElement(child, {
       value,
       onChange: (e) => {
         onValueChange((e.target as any).value);
+
+        if (child.props.onChange) {
+          child.props.onChange();
+        }
       },
     });
+  });
+
+  return cloneElement(controlWrapper ? controlWrapper() : <></>, {
+    children: newChildren,
   });
 }
