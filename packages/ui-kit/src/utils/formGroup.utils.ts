@@ -10,5 +10,3 @@ export const isElementAllowedAsFormControl = (el: ReactElement): boolean => {
   }
   return !!(el as any).type[KEY_ALLOWED_AS_FORM_CONTROL];
 };
-
-export const isElementLabel = (el: ReactElement): boolean => el.type === 'label';
