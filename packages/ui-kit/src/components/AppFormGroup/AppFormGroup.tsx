@@ -1,19 +1,17 @@
-import { Children, cloneElement, createContext, ReactElement, useContext, useEffect } from 'react';
-import { isElementAllowedAsFormControl } from '../../utils/formGroup.utils';
+import { cloneElement, useEffect } from 'react';
+import { AppFormGroupContext } from './context';
 
-interface AppFormGroupContextI<T = Record<string, any>> {
-  model: T,
-  onModelChange: (newModel: T) => void,
-  controlWrapper: () => ReactElement,
-}
 
-const AppFormGroupContext = createContext<AppFormGroupContextI>({
-  model: {},
-  onModelChange: () => null,
-  controlWrapper: () => <></>,
-});
-
-export const AppFormGroup: any = ({ children, model, onModelChange, groupWrapper, controlWrapper = () => <></> }: any) => {
+export const AppFormGroup: any = ({
+  children,
+  model,
+  onModelChange,
+  validators,
+  setErrors,
+  errors,
+  groupWrapper,
+  controlWrapper = () => <></>,
+}: any) => {
   useEffect(() => {
     onModelChange(model);
   }, [model]);
@@ -22,37 +20,9 @@ export const AppFormGroup: any = ({ children, model, onModelChange, groupWrapper
     children,
   });
 
-  return <AppFormGroupContext.Provider value={{ model, onModelChange, controlWrapper }}>
+  return <AppFormGroupContext.Provider value={{ model, onModelChange, controlWrapper, errors, setErrors, validators }}>
     { wrappedChildren }
   </AppFormGroupContext.Provider>;
 }
 
-AppFormGroup.Control = ({ children, name }: any) => {
-  const { model, onModelChange, controlWrapper } = useContext(AppFormGroupContext);
-  const value = (model as any)[name];
-
-  const handleControlChange = (field: string, value: string | number | boolean) => {
-    onModelChange({ ...model, [field]: value });
-  };
-
-  const newChildren = Children.map(children, (child) => {
-    if (!isElementAllowedAsFormControl(child)) {
-      return child;
-    }
-
-    return cloneElement(child, {
-      value,
-      onChange: (e) => {
-        handleControlChange(name, (e.target as any).value);
-
-        if (child.props.onChange) {
-          child.props.onChange(e);
-        }
-      },
-    });
-  });
-
-  return cloneElement(controlWrapper(), {
-    children: newChildren,
-  });
-}
+export default AppFormGroup;
