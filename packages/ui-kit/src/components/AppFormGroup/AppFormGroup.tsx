@@ -3,15 +3,13 @@ import { AppFormGroupContext } from './context';
 
 
 export const AppFormGroup: any = ({
+  handler,
   children,
-  model,
-  onModelChange,
-  validators,
-  setErrors,
-  errors,
   groupWrapper,
   controlWrapper = () => <></>,
 }: any) => {
+  const { model, onModelChange, errors, setErrors, validators } = handler;
+
   useEffect(() => {
     onModelChange(model);
   }, [model]);

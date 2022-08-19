@@ -1,7 +1,8 @@
-import { SignInForm, SignInFormRow } from './SignIn.styles';
-import { useMemo, useState } from 'react';
-import { AppBtn, AppFormGroup, AppInput, minLen } from '@mysock-front/ui-kit';
 import styled from 'styled-components';
+import { AppBtn, AppFormGroup, AppInput, minLen, useFormGroup } from '@mysock-front/ui-kit';
+
+import { SignInForm, SignInFormRow } from './SignIn.styles';
+
 
 export const AppFormControlError = styled.div`
   color: ${(props) => props.theme.colors.error};
@@ -10,22 +11,17 @@ export const AppFormControlError = styled.div`
 
 
 const SignIn = () => {
-  const [model, setModel] = useState({ email: '', password: '' });
-  const [errors, setErrors] = useState({ email: '', password: '' });
+  const { handler, errors } = useFormGroup<{ email: string, password: string }>({
+    email: ['', 'required', 'email'],
+    password: ['', 'required', minLen(6)],
+  });
 
-  const validators = useMemo(() => ({
-    email: ['required', 'email'],
-    password: ['required', minLen(6)]
-  }), []);
 
   return (
       <AppFormGroup
-        onModelChange={setModel}
-        setErrors={setErrors}
-        model={model}
+        handler={handler}
         groupWrapper={() => <SignInForm />}
         controlWrapper={() => <SignInFormRow />}
-        validators={validators}
       >
         <AppFormGroup.Control name="email">
           <label htmlFor="email">Email</label>
