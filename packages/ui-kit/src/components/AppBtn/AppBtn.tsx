@@ -15,7 +15,13 @@ const AppBtn: FC<Props> = ({ children, to, width, ...rest }) => {
   const isActive = !!useMatch(to || '');
   const navigate = useNavigate();
 
-  const handleClick = isLink ? () => navigate(to) : () => null;
+  const handleClick = (e: any) => {
+    const additionalAction = isLink ? () => navigate(to) : () => null;
+    if (rest.onClick) {
+      rest!.onClick(e)
+    }
+    additionalAction();
+  }
 
   return <Button
     {...rest}

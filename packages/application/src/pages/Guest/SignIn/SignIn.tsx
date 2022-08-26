@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { AppBtn, AppFormGroup, AppInput, minLen, useFormGroup } from '@mysock-front/ui-kit';
 
 import { SignInForm, SignInFormRow } from './SignIn.styles';
+import useAuthSandbox from '../../../store/auth.sandbox';
 
 
 export const AppFormControlError = styled.div`
@@ -11,11 +12,16 @@ export const AppFormControlError = styled.div`
 
 
 const SignIn = () => {
-  const { handler, errors } = useFormGroup<{ email: string, password: string }>({
+  const { handler, errors, model } = useFormGroup<{ email: string, password: string }>({
     email: ['', 'required', 'email'],
     password: ['', 'required', minLen(6)],
   });
 
+  const { signIn, getSignInError } = useAuthSandbox();
+  const handleLogin = () => {
+    const { email, password } = model;
+    signIn(email, password);
+  }
 
   return (
       <AppFormGroup
@@ -35,7 +41,8 @@ const SignIn = () => {
           <AppFormControlError>{ errors.password }</AppFormControlError>
         </AppFormGroup.Control>
 
-        <AppBtn width="100%" type="button">Login!</AppBtn>
+        <AppBtn width="100%" type="button" onClick={handleLogin}>Login!</AppBtn>
+        <AppFormControlError>{ getSignInError('general') }</AppFormControlError>
       </AppFormGroup>
   );
 }

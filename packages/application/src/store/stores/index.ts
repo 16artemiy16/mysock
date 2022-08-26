@@ -8,5 +8,5 @@ export interface AppStateI {
 export default configureStore<AppStateI>({
   reducer: {
     auth: authState,
-  }
+  },
 });
