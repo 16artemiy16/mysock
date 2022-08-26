@@ -1,7 +1,7 @@
 import { Dispatch } from '@reduxjs/toolkit';
 import jwt_decode from "jwt-decode";
 import authService from '../../services/auth.service';
-import { authActions } from '../stores/auth.store';
+import { authActions } from './auth.store';
 import { UserJWTDataI } from '../../models/auth.interfaces';
 
 export const login = (email: string, password: string) => {

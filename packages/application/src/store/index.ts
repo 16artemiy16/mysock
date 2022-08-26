@@ -1,9 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
-import authState, { AuthStateI } from './auth.store';
+import authState from './auth/auth.store';
+import { AppStateI } from './typization';
 
-export interface AppStateI {
-  auth: AuthStateI
-}
 
 export default configureStore<AppStateI>({
   reducer: {

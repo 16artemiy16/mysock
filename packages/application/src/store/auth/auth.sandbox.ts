@@ -4,8 +4,8 @@ import {
   selectIsAuthed,
   selectIsSignInLoading,
   selectSignInErrorMsg
-} from './selectors';
-import * as authThunks from './thunks/auth.thunks';
+} from '.';
+import * as authThunks from './auth.thunks';
 
 const useAuthSandbox = () => {
   const dispatch = useDispatch();

@@ -1,5 +1,5 @@
-import { AppStateI } from '../stores';
-import { AuthStateI } from '../stores/auth.store';
+import { AuthStateI } from './auth.store';
+import { AppStateI } from '../typization';
 
 export const authSelect = (selector: (state: AuthStateI) => any) => {
   return (state: AppStateI) => selector(state.auth);

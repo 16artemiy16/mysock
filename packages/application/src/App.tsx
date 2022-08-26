@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Routes } from 'react-router-dom';
-import store from './store/stores';
+import store from './store';
 import { getGuestRoutes } from './pages/Guest/guestRoutes';
 import { getAuthedRoutes } from './pages/Authed/authedRoutes';
 import { ThemeProvider } from 'styled-components';

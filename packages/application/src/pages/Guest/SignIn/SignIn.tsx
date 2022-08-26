@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { AppBtn, AppFormGroup, AppInput, minLen, useFormGroup } from '@mysock-front/ui-kit';
 
 import { SignInForm, SignInFormRow } from './SignIn.styles';
-import useAuthSandbox from '../../../store/auth.sandbox';
+import useAuthSandbox from '../../../store/auth/auth.sandbox';
 
 
 export const AppFormControlError = styled.div`
