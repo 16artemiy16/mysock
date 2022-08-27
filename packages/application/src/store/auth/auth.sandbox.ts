@@ -5,7 +5,7 @@ import {
   selectIsSignInLoading,
   selectSignInErrorMsg
 } from '.';
-import * as authThunks from './auth.thunks';
+import { signInRequest } from './auth.sagas';
 
 const useAuthSandbox = () => {
   const dispatch = useDispatch();
@@ -22,7 +22,7 @@ const useAuthSandbox = () => {
     getSignInError,
 
     // Thunks
-    signIn: (email: string, password: string) => dispatch(authThunks.login(email, password) as any),
+    signIn: (email: string, password: string) => dispatch(signInRequest(email, password) as any),
   }
 };
 

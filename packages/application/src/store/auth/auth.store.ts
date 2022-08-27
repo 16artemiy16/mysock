@@ -14,9 +14,9 @@ export interface AuthStateI {
 }
 
 interface AuthReducersI extends SliceCaseReducers<AuthStateI> {
-  setUserData: (state: AuthStateI, action: { type: string, payload: UserJWTDataI | null }) => void;
-  setIsLoginLoading: (state: AuthStateI, action: { type: string, payload: boolean }) => void;
-  setSignInErrorMsg: (state: AuthStateI, action: { type: string, payload: { login?: string, password?: string; genera?: string } | undefined }) => void;
+  signInError: (state: AuthStateI, action: { type: string, payload: { login?: string, password?: string; genera?: string } | undefined }) => void;
+  signInStart: (state: AuthStateI) => void;
+  signInSuccess: (state: AuthStateI, action: { type: string, payload: UserJWTDataI | null }) => void;
 }
 
 export const authSlice = createSlice<AuthStateI, AuthReducersI, 'auth'>({
@@ -27,15 +27,18 @@ export const authSlice = createSlice<AuthStateI, AuthReducersI, 'auth'>({
     signInErrorMsg: undefined,
   },
   reducers: {
-    setUserData: (state, { payload }) => {
+    signInStart: (state) => {
+      state.signInErrorMsg = undefined;
+      state.isLoginLoading = true;
+    },
+    signInSuccess: (state, { payload }) => {
       state.userData = payload;
+      state.isLoginLoading = false;
     },
-    setIsLoginLoading: (state, { payload }) => {
-      state.isLoginLoading = payload
-    },
-    setSignInErrorMsg: (state, { payload }) => {
+    signInError: (state, { payload }) => {
       state.signInErrorMsg = payload;
-    }
+      state.isLoginLoading = false;
+    },
   },
 });
 

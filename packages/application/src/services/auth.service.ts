@@ -7,7 +7,7 @@ const authService = {
       }
       return reject({ success: false, msg: { general: 'Login or password incorrect.' } });
     });
-  }
+  },
 };
 
 export default authService;
