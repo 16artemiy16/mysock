@@ -1,0 +1,179 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppBtn disabled should render with correct styles 1`] = `
+.c0 {
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-color: black;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha,sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 235ms ease-in-out;
+  transition: all 235ms ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  background-color: #e6e3e3;
+  cursor: not-allowed;
+}
+
+.c0:focus {
+  box-shadow: rgba(0,0,0,.3) 2px 8px 4px -6px;
+}
+
+.c0:hover {
+  -webkit-transition: -webkit-transform 235ms ease-in-out;
+  -webkit-transition: transform 235ms ease-in-out;
+  transition: transform 235ms ease-in-out;
+  -webkit-transform: translate3d(0,2px,0);
+  -ms-transform: translate3d(0,2px,0);
+  transform: translate3d(0,2px,0);
+}
+
+.c0 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: black;
+}
+
+<button
+  class="c0"
+  disabled=""
+/>
+`;
+
+exports[`AppBtn link should render with correct styles 1`] = `
+.c0 {
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-color: black;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha,sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 235ms ease-in-out;
+  transition: all 235ms ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  background-color: cornflowerblue;
+}
+
+.c0:focus {
+  box-shadow: rgba(0,0,0,.3) 2px 8px 4px -6px;
+}
+
+.c0:hover {
+  -webkit-transition: -webkit-transform 235ms ease-in-out;
+  -webkit-transition: transform 235ms ease-in-out;
+  transition: transform 235ms ease-in-out;
+  -webkit-transform: translate3d(0,2px,0);
+  -ms-transform: translate3d(0,2px,0);
+  transform: translate3d(0,2px,0);
+}
+
+.c0 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: black;
+}
+
+<button
+  class="c0"
+/>
+`;
+
+exports[`AppBtn should render without props 1`] = `
+.c0 {
+  border-radius: 15px 225px 255px 15px 15px 255px 225px 15px;
+  border-style: solid;
+  border-width: 2px;
+  box-sizing: border-box;
+  border-bottom-left-radius: 15px 255px;
+  border-bottom-right-radius: 225px 15px;
+  border-top-left-radius: 255px 15px;
+  border-top-right-radius: 15px 225px;
+  border-color: black;
+  -webkit-align-self: center;
+  -ms-flex-item-align: center;
+  align-self: center;
+  color: black;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Neucha,sans-serif;
+  font-size: 1rem;
+  line-height: 23px;
+  outline: none;
+  padding: .75rem;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  -webkit-transition: all 235ms ease-in-out;
+  transition: all 235ms ease-in-out;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  touch-action: manipulation;
+  background-color: white;
+}
+
+.c0:focus {
+  box-shadow: rgba(0,0,0,.3) 2px 8px 4px -6px;
+}
+
+.c0:hover {
+  -webkit-transition: -webkit-transform 235ms ease-in-out;
+  -webkit-transition: transform 235ms ease-in-out;
+  transition: transform 235ms ease-in-out;
+  -webkit-transform: translate3d(0,2px,0);
+  -ms-transform: translate3d(0,2px,0);
+  transform: translate3d(0,2px,0);
+}
+
+.c0 a {
+  -webkit-text-decoration: none;
+  text-decoration: none;
+  color: black;
+}
+
+<button
+  class="c0"
+>
+  Click
+</button>
+`;
