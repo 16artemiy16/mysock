@@ -1,11 +1,10 @@
 import { AuthStateI } from './auth.store';
 import { AppStateI } from '../typization';
+import { createSelector } from '@reduxjs/toolkit';
 
-export const authSelect = (selector: (state: AuthStateI) => any) => {
-  return (state: AppStateI) => selector(state.auth);
-};
+const selectAuth = (state: AppStateI): AuthStateI => state.auth;
 
-export const selectIsAuthed = authSelect((state) => !!state.userData);
-export const selectAuthedUser = authSelect((state) => state.userData);
-export const selectIsSignInLoading = authSelect((state) => state.isLoginLoading);
-export const selectSignInErrorMsg = authSelect((state) => state.signInErrorMsg);
+export const selectIsAuthed = createSelector(selectAuth, (state) => !!state.userData);
+export const selectAuthedUser = createSelector(selectAuth, (state) => state.userData);
+export const selectIsSignInLoading = createSelector(selectAuth, (state) => state.isLoginLoading);
+export const selectSignInErrorMsg = createSelector(selectAuth, (state) => state.signInErrorMsg);

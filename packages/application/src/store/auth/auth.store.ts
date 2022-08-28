@@ -7,7 +7,7 @@ export interface AuthStateI {
   userData: UserJWTDataI | null;
   isLoginLoading: boolean;
   signInErrorMsg?: {
-    login?: string;
+    email?: string;
     password?: string;
     general?: string;
   };
